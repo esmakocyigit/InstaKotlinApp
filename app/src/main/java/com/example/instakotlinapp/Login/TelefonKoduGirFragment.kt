@@ -85,7 +85,7 @@ class TelefonKoduGirFragment : Fragment() {
         Log.e("esma","gelen tel no"+gelenTelNo)
     }
 
-    override fun onAttach(context: Context) {
+    override fun onAttach(context: Context ) {
         super.onAttach(context)
         EventBus.getDefault().register(this)
 
