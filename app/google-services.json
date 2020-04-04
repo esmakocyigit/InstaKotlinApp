@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "86487544248",
+    "firebase_url": "https://instakotlinapp-8748c.firebaseio.com",
+    "project_id": "instakotlinapp-8748c",
+    "storage_bucket": "instakotlinapp-8748c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:86487544248:android:5527942918a9ee1ecc9f4d",
+        "android_client_info": {
+          "package_name": "com.example.instakotlinapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "86487544248-7rsusbrme4p26q00606snl9j1tnaqgog.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.instakotlinapp",
+            "certificate_hash": "c77df1b832a9ecbae890d3a00cd3a806a3afd345"
+          }
+        },
+        {
+          "client_id": "86487544248-3rnvv5vp5fposj17tmkjoqlkjugn2k3j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCG8oSFTuO6Ddml9-xiDxYkbDHFmqBRyg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "86487544248-3rnvv5vp5fposj17tmkjoqlkjugn2k3j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
