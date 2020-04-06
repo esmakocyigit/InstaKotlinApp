@@ -53,7 +53,7 @@ class RegisterActivity : AppCompatActivity(),FragmentManager.OnBackStackChangedL
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if (start+before+count >= 10){
+                if (s!!.length >= 10){
                     btnIleri.isEnabled=true
                     btnIleri.setTextColor(ContextCompat.getColor(this@RegisterActivity,R.color.beyaz))
                     btnIleri.setBackgroundResource(R.drawable.register_button_aktif)
