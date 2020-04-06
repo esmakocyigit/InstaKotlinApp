@@ -6,20 +6,22 @@ import android.text.Editable
 import android.text.InputType
 import android.text.TextWatcher
 import android.view.View
-import android.widget.Toast
 import androidx.core.content.ContextCompat
-import androidx.core.widget.addTextChangedListener
+import androidx.fragment.app.FragmentManager
 import com.example.instakotlinapp.R
 import com.example.instakotlinapp.utils.EventbusDataEvents
-import kotlinx.android.synthetic.main.activity_profile.*
 import kotlinx.android.synthetic.main.activity_register.*
 import org.greenrobot.eventbus.EventBus
 
-class RegisterActivity : AppCompatActivity() {
+class RegisterActivity : AppCompatActivity(),FragmentManager.OnBackStackChangedListener  {
+    lateinit var manager :FragmentManager
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
+        manager=supportFragmentManager
+        manager.addOnBackStackChangedListener (this)
         init()
     }
 
@@ -77,23 +79,25 @@ class RegisterActivity : AppCompatActivity() {
                 transaction.replace(R.id.loginContainer,TelefonKoduGirFragment())
                 transaction.addToBackStack("telefonKoduGirFragmentEklendi")
                 transaction.commit()
-                EventBus.getDefault().postSticky(EventbusDataEvents.TelefonNoGonder(etGirisYontemi.text.toString()))
+                EventBus.getDefault().postSticky(EventbusDataEvents.KayitBilgileriniGonder(etGirisYontemi.text.toString(),null,null,null,false))
             }
             else{
                 loginRoot.visibility=View.GONE
                 loginContainer.visibility=View.VISIBLE
                 var transaction=supportFragmentManager.beginTransaction()
-                transaction.replace(R.id.loginContainer,EmailGirisYontemiFragment())
+                transaction.replace(R.id.loginContainer,KayitFragment())
                 transaction.addToBackStack("EmailGirisYontemiFragmentEklendi")
                 transaction.commit()
-                EventBus.getDefault().postSticky(EventbusDataEvents.EmailGonder(etGirisYontemi.text.toString()))
+                EventBus.getDefault().postSticky(EventbusDataEvents.KayitBilgileriniGonder(null,etGirisYontemi.text.toString(),null,null,true))
 
             }
         }
-    }
-    override fun onBackPressed() {
-        loginRoot.visibility= View.VISIBLE
-        super.onBackPressed()
-    }
 
+    }
+    override fun onBackStackChanged() {
+        val elemanSayisi = manager.backStackEntryCount
+        if(elemanSayisi==0){
+            loginRoot.visibility =View.VISIBLE
+        }
+    }
 }
